@@ -19,7 +19,7 @@ public class ProdutoController {
         return produtorService.save(produtoRequestDto);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     ProdutoResponseDto update(@RequestBody ProdutoRequestDto produtoRequestDto, @PathVariable Long id){
         return produtorService.update(produtoRequestDto, id);
     }
