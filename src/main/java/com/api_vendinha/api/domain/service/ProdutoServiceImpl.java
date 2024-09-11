@@ -8,6 +8,7 @@ import com.api_vendinha.api.domain.entities.User;
 import com.api_vendinha.api.domain.service.ProdutoService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -59,5 +60,15 @@ public class ProdutoServiceImpl implements ProdutoService {
         prodRes.setPreco(saveproduct.getPreco());
 
         return prodRes;
+    }
+
+    @Override
+    public List<Produto> findAll() {
+        return produtoRepository.findAll();
+    }
+
+    @Override
+    public Produto findById(Long id) {
+        return produtoRepository.findById(id).orElseThrow();
     }
 }
