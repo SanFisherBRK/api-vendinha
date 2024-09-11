@@ -71,4 +71,10 @@ public class ProdutoServiceImpl implements ProdutoService {
     public Produto findById(Long id) {
         return produtoRepository.findById(id).orElseThrow();
     }
+
+    @Override
+    public void deletar(Long id) {
+        Produto prodExist = produtoRepository.findById(id).orElseThrow();
+        produtoRepository.delete(prodExist);
+    }
 }
