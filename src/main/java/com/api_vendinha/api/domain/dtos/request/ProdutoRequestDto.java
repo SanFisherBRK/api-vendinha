@@ -9,4 +9,5 @@ public class ProdutoRequestDto {
     private String name;
     private Integer quantidade;
     private Double preco;
+    private Boolean active;
 }

@@ -10,20 +10,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "poduto")
+@Table(name = "produtos")
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "quantidade")
+    @Column(nullable = false)
     private Integer quantidade;
 
-    @Column(name = "preco")
+    @Column(nullable = false)
     private Double preco;
+
+    @Column
+    private Boolean active;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

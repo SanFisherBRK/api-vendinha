@@ -20,28 +20,29 @@ public class ProdutoServiceImpl implements ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    @Override
-    public ProdutoResponseDto save(ProdutoRequestDto produtoRequestDto) {
-        Optional<Produto> produtoExite = produtoRepository.findByName(produtoRequestDto.getName());
-
-        if(produtoExite.isPresent()){
-            throw new IllegalArgumentException("Já existe um cadastro deste produto");
-        }
-
-        Produto prod = new Produto();
-        prod.setName(produtoRequestDto.getName());
-        prod.setQuantidade(produtoRequestDto.getQuantidade());
-        prod.setPreco(produtoRequestDto.getPreco());
-
-        Produto saveproduct = produtoRepository.save(prod);
-
-        ProdutoResponseDto prodRes = new ProdutoResponseDto();
-        prodRes.setName(saveproduct.getName());
-        prodRes.setQuantidade(saveproduct.getQuantidade());
-        prodRes.setPreco(saveproduct.getPreco());
-
-        return prodRes;
-    }
+//    @Override
+//    public ProdutoResponseDto save(ProdutoRequestDto produtoRequestDto) {
+//        Optional<Produto> produtoExite = produtoRepository.findByName(produtoRequestDto.getName());
+//
+//        if(produtoExite.isPresent()){
+//            throw new IllegalArgumentException("Já existe um cadastro deste produto");
+//        }
+//
+//        Produto prod = new Produto();
+//        prod.setName(produtoRequestDto.getName());
+//        prod.setQuantidade(produtoRequestDto.getQuantidade());
+//        prod.setPreco(produtoRequestDto.getPreco());
+//
+//        Produto saveproduct = produtoRepository.save(prod);
+//
+//        ProdutoResponseDto prodRes = new ProdutoResponseDto();
+//        prodRes.setName(saveproduct.getName());
+//        prodRes.setQuantidade(saveproduct.getQuantidade());
+//        prodRes.setPreco(saveproduct.getPreco());
+//        prodRes.setActive(saveproduct.getActive());
+//
+//        return prodRes;
+//    }
 
     @Override
     public ProdutoResponseDto update(ProdutoRequestDto produtoRequestDto, Long id) {
@@ -58,6 +59,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         prodRes.setName(saveproduct.getName());
         prodRes.setQuantidade(saveproduct.getQuantidade());
         prodRes.setPreco(saveproduct.getPreco());
+        prodRes.setActive(saveproduct.getActive());
 
         return prodRes;
     }

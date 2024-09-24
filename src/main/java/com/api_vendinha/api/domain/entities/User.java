@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "users")
@@ -17,23 +19,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "email")
+    @Column(nullable = false)
     private String email;
 
-    @Column (name = "password")
+    @Column (nullable = false)
     private String password;
 
-    @Column (name = "cpf")
+    @Column (nullable = false)
     private String cpf;
 
-    @Column (name = "cnpj")
+    @Column (nullable = false)
     private String cnpj;
 
-    @Column (name = "active")
+    @Column (nullable = false)
     private Boolean active;
 
-
+    @OneToMany(mappedBy = "user")
+    private List<Produto> produtos;
 }
