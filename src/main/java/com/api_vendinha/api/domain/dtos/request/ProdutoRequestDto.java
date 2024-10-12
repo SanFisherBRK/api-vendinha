@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ProdutoRequestDto {
+    private Integer id;
     private String name;
     private Integer quantidade;
     private Double preco;

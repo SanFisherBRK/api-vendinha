@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
-
 
 @Entity
 @Table(name = "users")
@@ -25,18 +25,19 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String cpf;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String cnpj;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private Boolean active;
 
-    @OneToMany(mappedBy = "user")
-    private List<Produto> produtos;
+    public String toString() {
+        return name + email  + password + cpf + cnpj + active;
+    }
 }

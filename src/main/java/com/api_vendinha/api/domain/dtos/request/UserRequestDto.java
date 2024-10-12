@@ -20,4 +20,5 @@ public class UserRequestDto {
     private Boolean active;
 
     private List<ProdutoRequestDto> produtoRequestDtos;
+    private List<VendaRequestDto> vendaRequestDtos;
 }

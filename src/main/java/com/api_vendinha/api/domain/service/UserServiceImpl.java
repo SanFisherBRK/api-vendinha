@@ -2,11 +2,13 @@ package com.api_vendinha.api.domain.service;
 
 import com.api_vendinha.api.Infrastructure.repository.ProdutoRepository;
 import com.api_vendinha.api.Infrastructure.repository.UserRepository;
+import com.api_vendinha.api.Infrastructure.repository.VendaRepository;
 import com.api_vendinha.api.domain.dtos.request.ProdutoRequestDto;
 import com.api_vendinha.api.domain.dtos.request.UserRequestDto;
 import com.api_vendinha.api.domain.dtos.response.UserResponseDto;
 import com.api_vendinha.api.domain.entities.Produto;
 import com.api_vendinha.api.domain.entities.User;
+import com.api_vendinha.api.domain.entities.Venda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +21,12 @@ public class UserServiceImpl implements UserServiceInterface {
 
     private final UserRepository userRepository;
     private final ProdutoRepository produtoRepository;
+    private final VendaRepository vendaRepository;
 
-    public UserServiceImpl(UserRepository userRepository, ProdutoRepository produtoRepository) {
+    public UserServiceImpl(UserRepository userRepository, ProdutoRepository produtoRepository, VendaRepository vendaRepository) {
         this.userRepository = userRepository;
         this.produtoRepository = produtoRepository;
+        this.vendaRepository = vendaRepository;
     }
 
     @Override
@@ -47,20 +51,18 @@ public class UserServiceImpl implements UserServiceInterface {
         User savedUser = userRepository.save(user);
 
 
-        List<Produto> produtos = userRequestDto.getProdutoRequestDtos().stream().map(
-                dto -> {
-                    Produto produto = new Produto();
-                    produto.setName(dto.getName());
-                    produto.setPreco(dto.getPreco());
-                    produto.setQuantidade(dto.getQuantidade());
-                    produto.setActive(Boolean.TRUE);
-                    produto.setUser(savedUser);
-                    return produto;
-                }).collect(Collectors.toList());
-
-        produtoRepository.saveAll(produtos);
-
-
+//        List<Produto> produtos = userRequestDto.getProdutoRequestDtos().stream().map(
+//                dto -> {
+//                    Produto produto = new Produto();
+//                    produto.setName(dto.getName());
+//                    produto.setPreco(dto.getPreco());
+//                    produto.setQuantidade(dto.getQuantidade());
+//                    produto.setActive(Boolean.TRUE);
+//                    produto.setUser(savedUser);
+//                    return produto;
+//                }).collect(Collectors.toList());
+//
+//        produtoRepository.saveAll(produtos);
 
         // Cria um DTO de resposta com as informações do usuário salvo.
         UserResponseDto userResponseDto = new UserResponseDto();

@@ -7,7 +7,7 @@ import com.api_vendinha.api.domain.entities.Produto;
 import java.util.List;
 
 public interface ProdutoService {
-    //ProdutoResponseDto save(ProdutoRequestDto produtoRequestDto);
+   // ProdutoResponseDto save(ProdutoRequestDto produtoRequestDto);
     ProdutoResponseDto update(ProdutoRequestDto produtoRequestDto, Long id);
     List<Produto> findAll();
     Produto findById(Long id);

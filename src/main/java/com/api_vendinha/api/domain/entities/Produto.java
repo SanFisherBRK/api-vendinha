@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,9 +28,10 @@ public class Produto {
     private Double preco;
 
     @Column
-    private Boolean active;
+    private Boolean active = true;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 }
