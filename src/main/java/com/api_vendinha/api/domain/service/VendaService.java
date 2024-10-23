@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface VendaService {
     VendaResponseDto save(VendaRequestDto vendaRequestDto);
-    VendaResponseDto update(VendaRequestDto vendaRequestDto, Long id);
+    //VendaResponseDto update(VendaRequestDto vendaRequestDto, Long id);
     List<Venda> findAll();
     Venda findById(Long id);
     void deletar(Long id);

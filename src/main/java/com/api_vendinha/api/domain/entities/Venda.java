@@ -29,4 +29,6 @@ public class Venda {
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Produto produto;
+
+
 }

@@ -5,6 +5,7 @@ import com.api_vendinha.api.Infrastructure.repository.VendaRepository;
 import com.api_vendinha.api.domain.dtos.request.ProdutoRequestDto;
 import com.api_vendinha.api.domain.dtos.request.VendaRequestDto;
 import com.api_vendinha.api.domain.dtos.response.ProdutoResponseDto;
+import com.api_vendinha.api.domain.dtos.response.UserResponseDto;
 import com.api_vendinha.api.domain.dtos.response.VendaResponseDto;
 import com.api_vendinha.api.domain.entities.Produto;
 import com.api_vendinha.api.domain.entities.User;
@@ -72,10 +73,10 @@ public class VendaServiceImpl implements VendaService{
     }
 
 
-    @Override
+    /*@Override
     public VendaResponseDto update(VendaRequestDto vendaRequestDto, Long id) {
-        return null;
-    }
+
+    }*/
 
     @Override
     public List<Venda> findAll() {

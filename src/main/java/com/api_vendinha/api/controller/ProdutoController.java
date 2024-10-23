@@ -17,10 +17,10 @@ public class ProdutoController {
         this.produtorService = produtorService;
     }
 
-    /*@PostMapping("/save")
+    @PostMapping("/save")
     ProdutoResponseDto save(@RequestBody ProdutoRequestDto produtoRequestDto){
         return produtorService.save(produtoRequestDto);
-    }*/
+    }
 
     @PutMapping("/update/{id}")
     ProdutoResponseDto update(@RequestBody ProdutoRequestDto produtoRequestDto, @PathVariable Long id){

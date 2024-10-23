@@ -20,7 +20,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    /*@Override
+    @Override
     public ProdutoResponseDto save(ProdutoRequestDto produtoRequestDto) {
         Optional<Produto> produtoExite = produtoRepository.findByName(produtoRequestDto.getName());
 
@@ -42,7 +42,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         prodRes.setActive(saveproduct.getActive());
 
         return prodRes;
-    }*/
+    }
 
     @Override
     public ProdutoResponseDto update(ProdutoRequestDto produtoRequestDto, Long id) {
